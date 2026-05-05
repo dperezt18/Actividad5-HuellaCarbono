@@ -3,7 +3,7 @@ import Clases.Carro;
 import Clases.Edificio;
 import Interfaces.HuellaCarbono;
 
-import java.io.*;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,17 +13,21 @@ import java.util.List;
  * Demuestra:
  *  - Polimorfismo: ArrayList<HuellaCarbono> almacena Edificio, Carro y Bicicleta.
  *  - Modularidad: carpetas Clases e Interfaces con responsabilidades separadas.
- *  - Manejo de archivos: guarda y lee el reporte en .txt.
+ *  - Manejo de archivos: ArchivoService guarda y lee el reporte en .txt.
  *  - Reutilización: la interfaz HuellaCarbono es el contrato común sin herencia entre clases.
  */
 public class HuellaCarbonoApp {
 
-    private ArrayList<HuellaCarbono> listaHuella;
+    private List<HuellaCarbono> listaHuella;
 
     public HuellaCarbonoApp() {
         listaHuella = new ArrayList<>();
     }
 
+    /**
+     * Agrega un objeto a la lista polimórfica.
+     * @param objeto implementación de HuellaCarbono a agregar
+     */
     public void agregar(HuellaCarbono objeto) {
         listaHuella.add(objeto);
     }
@@ -41,38 +45,8 @@ public class HuellaCarbonoApp {
         System.out.printf("HUELLA TOTAL: %.2f kg CO2/año%n", total);
     }
 
-    public void guardaEnArchivo(String ruta) throws IOException {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(ruta))) {
-            writer.write("=== REPORTE DE HUELLA DE CARBONO ===");
-            writer.newLine();
-            writer.newLine();
-            double total = 0.0;
-            int num = 1;
-            for (HuellaCarbono objeto : listaHuella) {
-                writer.write("Objeto #" + num + ":");
-                writer.newLine();
-                writer.write("  " + objeto.toString());
-                writer.newLine();
-                writer.newLine();
-                total += objeto.getHuellaCarbono();
-                num++;
-            }
-            writer.write("=====================================");
-            writer.newLine();
-            writer.write(String.format("HUELLA TOTAL: %.2f kg CO2/año", total));
-            writer.newLine();
-        }
-    }
-
-    public List<String> leerArchivo(String ruta) throws IOException {
-        List<String> lineas = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader(ruta))) {
-            String linea;
-            while ((linea = reader.readLine()) != null) {
-                lineas.add(linea);
-            }
-        }
-        return lineas;
+    public List<HuellaCarbono> getListaHuella() {
+        return listaHuella;
     }
 
     public static void main(String[] args) {
@@ -89,12 +63,13 @@ public class HuellaCarbonoApp {
 
         app.displayFootprints();
 
+        ArchivoService archivoService = new ArchivoService();
         String ruta = "reporte_huella_carbono.txt";
         try {
-            app.guardaEnArchivo(ruta);
+            archivoService.guardaEnArchivo(app.getListaHuella(), ruta);
             System.out.println("\nArchivo guardado: " + ruta);
             System.out.println("\n--- Contenido del archivo ---");
-            app.leerArchivo(ruta).forEach(System.out::println);
+            archivoService.leerArchivo(ruta).forEach(System.out::println);
         } catch (IOException e) {
             System.err.println("Error al manejar el archivo: " + e.getMessage());
         }
