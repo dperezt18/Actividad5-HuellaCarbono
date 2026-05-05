@@ -31,6 +31,10 @@ public class Carro implements HuellaCarbono {
         this.kilometrosAnio     = kilometrosAnio;
     }
 
+    /**
+     * Comportamiento único de Carro: eficiencia de combustible.
+     * @return kilómetros recorridos por litro
+     */
     public double getEficiencia() {
         if (consumoCombustible <= 0) return 0;
         return 100.0 / consumoCombustible;

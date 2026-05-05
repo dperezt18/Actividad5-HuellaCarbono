@@ -31,6 +31,10 @@ public class Edificio implements HuellaCarbono {
         this.tipoCalefaccion = tipoCalefaccion;
     }
 
+    /**
+     * Comportamiento único de Edificio: eficiencia energética por m².
+     * @return kWh consumidos por metro cuadrado al año
+     */
     public double getEficiencia() {
         if (metrosCuadrados <= 0) return 0;
         return consumoEnergia / metrosCuadrados;

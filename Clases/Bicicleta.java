@@ -33,6 +33,10 @@ public class Bicicleta implements HuellaCarbono {
         this.kilometrosAnio = kilometrosAnio;
     }
 
+    /**
+     * Comportamiento único de Bicicleta: kilómetros totales en toda su vida útil.
+     * @return kilómetros totales recorridos
+     */
     public double getKilometros() {
         return kilometrosAnio * aniosUso;
     }
