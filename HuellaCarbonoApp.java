@@ -11,7 +11,7 @@ import java.util.List;
  * Clase principal HuellaCarbonoApp.
  *
  * Demuestra:
- *  - Polimorfismo: ArrayList<HuellaCarbono> almacena Edificio, Carro y Bicicleta.
+ *  - Polimorfismo: List<HuellaCarbono> almacena Edificio, Carro y Bicicleta.
  *  - Modularidad: carpetas Clases e Interfaces con responsabilidades separadas.
  *  - Manejo de archivos: ArchivoService guarda y lee el reporte en .txt.
  *  - Reutilización: la interfaz HuellaCarbono es el contrato común sin herencia entre clases.
