@@ -17,6 +17,13 @@ public class Bicicleta implements HuellaCarbono {
     private int    aniosUso;
     private double kilometrosAnio;
 
+    /**
+     * @param tipo           tipo de bicicleta: "urbana", "montaña" o "ruta"
+     * @param peso           peso de la bicicleta en kg
+     * @param emisionesFab   emisiones de fabricación amortizadas por año en kg CO2
+     * @param aniosUso       años de vida útil estimados
+     * @param kilometrosAnio kilómetros recorridos al año
+     */
     public Bicicleta(String tipo, double peso, double emisionesFab,
                      int aniosUso, double kilometrosAnio) {
         this.tipo           = tipo;

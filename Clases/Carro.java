@@ -17,6 +17,12 @@ public class Carro implements HuellaCarbono {
     private double consumoCombustible;
     private double kilometrosAnio;
 
+    /**
+     * @param modelo             nombre o referencia del vehículo
+     * @param tipoCombustible    tipo de combustible: "gasolina" o "diesel"
+     * @param consumoCombustible consumo en litros por 100 km
+     * @param kilometrosAnio     kilómetros recorridos al año
+     */
     public Carro(String modelo, String tipoCombustible,
                  double consumoCombustible, double kilometrosAnio) {
         this.modelo             = modelo;

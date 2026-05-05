@@ -17,6 +17,12 @@ public class Edificio implements HuellaCarbono {
     private double metrosCuadrados;
     private String tipoCalefaccion;
 
+    /**
+     * @param nombre          nombre o dirección del edificio
+     * @param consumoEnergia  consumo energético anual en kWh
+     * @param metrosCuadrados área del edificio en m²
+     * @param tipoCalefaccion tipo de calefacción: "electrica" o "gas"
+     */
     public Edificio(String nombre, double consumoEnergia,
                     double metrosCuadrados, String tipoCalefaccion) {
         this.nombre          = nombre;
