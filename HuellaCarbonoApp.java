@@ -45,6 +45,10 @@ public class HuellaCarbonoApp {
         System.out.printf("HUELLA TOTAL: %.2f kg CO2/año%n", total);
     }
 
+    /**
+     * Retorna la lista polimórfica de objetos HuellaCarbono.
+     * @return ArrayList con todos los objetos registrados
+     */
     public ArrayList<HuellaCarbono> getListaHuella() {
         return listaHuella;
     }
