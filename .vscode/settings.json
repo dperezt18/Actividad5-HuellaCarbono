@@ -1,0 +1,10 @@
+{
+    "java.project.sourcePaths": [
+        ".",
+        "Clases",
+        "Interfaces"
+    ],
+    "java.test.config": {
+        "workingDirectory": "${workspaceFolder}"
+    }
+}
