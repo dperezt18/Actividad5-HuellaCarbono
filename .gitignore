@@ -6,3 +6,4 @@ target/
 *.iml
 nbproject/
 nb-configuration.xml
+pom.xml
